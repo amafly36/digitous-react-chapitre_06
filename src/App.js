@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom"; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import Home from "./catalogue.json";
+import film1 from "./components/film1";
+
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <BrowserRouter> 
+        <div>
+          <nav> 
+            <ul>
+              
+              <li><Link to="/">Acceuil</Link></li> 
+              {Home.map(film => <li><Link to={`/${film.id}`}>{film.title}</Link></li>)}
+              
+              
+            </ul>
+          </nav>
+
+          <Switch> 
+            <Route exact path="/:id" component={film1} /> 
+						
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
-
 export default App;
