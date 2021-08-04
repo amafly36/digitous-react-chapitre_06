@@ -36,7 +36,7 @@ class App extends React.Component {
           { this.state.catalogue.map( film => (<h1>{film.id}</h1>)) }
 
           <Switch> 
-            <Route exact path="/:id:1" component={film1} /> 
+            <Route exact path="/:id" component={film1} /> 
           
 						
           </Switch> 

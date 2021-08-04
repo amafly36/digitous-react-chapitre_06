@@ -13,9 +13,9 @@ class film1 extends React.Component {
       
       catalogue.map(film => 
         
-        this.props.match.params.id === film.id 
-          ?  <div>{film.title}</div> : null
-        
+        parseInt(this.props.match.params.id) === film.id 
+          ?  <div><h4>Titre: {film.title}</h4> <div><h4>Producteur: {film.director}</h4></div> <div><h4>Acteur: {film.stars}</h4></div> <div><h4>Description: {film.description}</h4></div> <div><img src={film.image}></img></div> </div> : null
+            
       )
     );
   }
