@@ -6,7 +6,18 @@ import Home from "./catalogue.json";
 import film1 from "./components/film1";
 
 
+
+
 class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      catalogue: [{
+        id: "",
+      }]
+    }
+  }
 
   render() {
     return (
@@ -22,10 +33,15 @@ class App extends React.Component {
             </ul>
           </nav>
 
+          { this.state.catalogue.map( film => (<h1>{film.id}</h1>)) }
+
           <Switch> 
-            <Route exact path="/:id" component={film1} /> 
+            <Route exact path="/:id:1" component={film1} /> 
+          
 						
-          </Switch>
+          </Switch> 
+
+          
         </div>
       </BrowserRouter>
     );
